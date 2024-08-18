@@ -13,7 +13,7 @@ export function UserTemplate({ children }) {
 
           <nav className="flex gap-6">
             <Link to="/">Trang Chủ</Link>
-            <Link to="/showing-movie">Men</Link>
+            <Link to="/men">Men</Link>
             <Link to="/coming-movie">Women</Link>
           </nav>
         </div>

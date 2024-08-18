@@ -2,9 +2,8 @@ import { createBrowserRouter, Link, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { UserTemplate } from "../atomic/templates/user";
 //Lazy Load
-const Movie = lazy(() => import("../atomic/pages/movie/Movie"));
-const Anime = lazy(() => import("../atomic/pages/anime/Anime"));
-const ShowingMovie = lazy(() => import("../atomic/pages/showing-movie"));
+
+const ShowingMovie = lazy(() => import("../atomic/pages/men"));
 const Home = lazy(()=> import("../atomic/pages/home"));
 const CommingMovie = lazy(()=>import("../atomic/pages/comming-movie"))
 const DetailMovie = lazy(()=>import("../atomic/pages/detail-movie"))
@@ -20,7 +19,7 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "showing-movie",
+        path: "men",
         element: <ShowingMovie/>,
       },
 
@@ -39,46 +38,6 @@ export const router = createBrowserRouter([
         // element: <DetailMovie />,
       },
     ],
-  },
-
-  {
-    path: "admin",
-    element: <>Admin</>,
-    children: [
-      {
-        path: "create-user",
-        element: "",
-      },
-      {
-        path: "delete-user",
-        element: "",
-      },
-    ],
-  },
-
-  {
-    path: "movie",
-    element: (
-      // Đợi page của chúng ta tải xong rồi mới sử dụng để render.
-      // fallback: render tạm thời khi page chưa tải xong
-      <Suspense fallback={<>Loading....</>}>
-        <Movie />
-      </Suspense>
-    ),
-  },
-
-  {
-    path: "tv-series",
-    element: <>tv-series</>,
-  },
-
-  {
-    path: "anime",
-    element: (
-      <Suspense fallback={<>Loading....</>}>
-        <Anime />
-      </Suspense>
-    ),
   },
 
   {
